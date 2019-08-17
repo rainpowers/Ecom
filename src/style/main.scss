@@ -1,5 +1,4 @@
 
-
 html {
     font-size: 62.5%;
 }
@@ -18,10 +17,8 @@ body {
 }
 
 
-
 @import 'layout';
 @import 'headernavbar';
-
 @import 'page-title';
 @import 'form-fields';
 @import 'details';
@@ -31,7 +28,6 @@ body {
 @import 'auth/signup';
 
 // ACCOUNT
-
 @import 'account/account';
 @import 'account/purchase-history';
 @import 'account/account-information';
@@ -40,6 +36,9 @@ body {
 @import 'shop/shop';
 @import 'shop/shop-search-bar';
 @import 'shop/shop-product';
+
+// CART
+@import 'shop/shop-cart';
 
 // QUANTITY
 @import 'quantity';

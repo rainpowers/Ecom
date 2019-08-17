@@ -53,7 +53,7 @@ export function fetchShopCategories() {
                 title: 'Ruby'
             },
         ]
-        
+
     })
 }
 
@@ -113,4 +113,4 @@ export function fetchShopProducts() {
             },
         ]
     })
-} 
+}

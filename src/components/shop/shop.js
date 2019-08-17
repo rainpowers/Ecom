@@ -1,66 +1,56 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import ShopSearchBar from './shopSearchBar';
-import ShopProduct from './shopProduct';
+function CartButton({className, icon}) {
+    return (
+        <div className={`${className} cart-button`}>
+            <i className={icon}/>        
+        </div>
+    )
+}
 
-class Shop extends Component {
+function CartContent({className, products}) {
+    let count = products.length;
+    let productsJSX = products.map(product => <h1 key={product}>{product}</h1>);
+    return (
+        <div className={`${className} cart-content`}>
+            <div className='cart-content__title'>
+                Cart ({count})
+            </div>
+            <div className='cart-content__products'>
+                {productsJSX}
+            </div>
+            <CartFooter className='cart-content__footer' products={products}/>
+        </div>
+    )
+}
 
-    componentDidMount() {
-        const headerLinks = [
-            {
-                _id: 0,
-                title: 'Login',
-                path: '/signin'
-            }
-        ]
-        this.props.setHeaderLinks(headerLinks);
-        this.props.fetchShopCategories();
-        
-         // filter products with links
-        this.props.fetchShopProducts();
-    }
-    
-    shouldComponentUpdate(nextProps) {
-        if(this.props != nextProps) {
-            this.props.setNavbarLinks(nextProps.categories, (_id) => this.props.filterProductsWithCategoryId(_id));
-        }
-        return true
-    }
+function CartFooter({className, products}) {
+    const price = 7.96;
+    return (
+        <div className={`${className} cart-footer`}>
+            <a className='cart-footer__checkout'>
+                Checkout
+            </a>
+            <div className='cart-footer__subtotal'>
+                Subtotal
+            </div>
+            <div className='cart-footer__price'>
+                ${price}
+            </div>
+        </div>
+    )
+}
 
-    onSubmit = (fields) => {
-        this.props.filterProductsWithQuery(fields)
-    }
-
+class ShopCart extends Component {
     render() {
-
+        const { className } = this.props;
         return (
-            <div className='shop'>
-                <ShopSearchBar onSubmit={this.onSubmit} className='shop__search-bar'/>
-                    <div className='shop__products'>
-                        {
-                            this.props.filteredProducts.map(product => {
-                                return (
-                                    <ShopProduct {...product} key={product._id} />
-                                )
-                            })
-                        }
-                    </div>
-                {/* shop cart button */}
+            <div className={`${className} shop-cart`}>
+                <CartButton className='shop-cart__toggle' icon='fas fa-times'/>
+                <CartContent className='shop-cart__content' products={[243, 3434, 4554]}/>
             </div>
         )
     }
 }
 
-function mapStateToProps(state) {
-      const { categories, filteredProducts } = state.shop;
-    return {
-        categories,
-        filteredProducts
-    } 
-}
-
-Shop = connect(mapStateToProps, actions)(Shop);
-
-export default Shop; 
+export default ShopCart;
