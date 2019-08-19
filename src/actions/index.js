@@ -6,7 +6,8 @@ import {
 
 import {
     fetchUserPurchases,
-    setPurchaseDetail
+    setPurchaseDetail,
+    fetchCartProducts
 } from './user';
 
 import {
@@ -16,19 +17,18 @@ import {
     filterProductsWithQuery
 } from './shop';
 
-
 export {
     setHeaderLinks,
     setNavbarLinks,
     changeNavbarActive,
 
-    fetchUserPurchases, 
+    fetchUserPurchases,
     setPurchaseDetail,
+    fetchCartProducts,
 
     fetchShopCategories,
     fetchShopProducts,
     filterProductsWithCategoryId,
 
     filterProductsWithQuery
-    
-}; 
+};
