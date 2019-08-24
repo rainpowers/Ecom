@@ -9,7 +9,6 @@ import CartButton from './cartButton';
 import history from '../../history';
 
 function CartContent({className, products}) {
-    
     let count = products.length;
     let productsJSX = products.map(product => <CartProduct {...product} key={product._id}/>);
     return (
@@ -26,17 +25,20 @@ function CartContent({className, products}) {
 }
 
 function CartFooter({className, products}) {
-    const price = 7.96;
+    let subtotal = 0;
+    products.map(cartProduct => {
+        subtotal += cartProduct.quantity * cartProduct.product.price;
+    })
     return (
         <div className={`${className} cart-footer`}>
-           <a onClick={() => history.push('/order/review')} className='cart-footer__checkout'>
+            <a onClick={() => history.push('/order/review')} className='cart-footer__checkout'>
                 Checkout
             </a>
             <div className='cart-footer__subtotal'>
                 Subtotal
             </div>
             <div className='cart-footer__price'>
-                ${price}
+                ${subtotal}
             </div>
         </div>
     )
@@ -60,7 +62,7 @@ class ShopCart extends Component {
         const { className } = this.props;
         return (
             <div id='shop-cart' className={`${className} shop-cart cart-hidden`}>
-            <CartButton className='shop-cart__toggle' icon='fas fa-times' onClick={this.handleAddToCart}/>
+                <CartButton className='shop-cart__toggle' icon='fas fa-times' onClick={this.handleAddToCart}/>
                 <CartContent className='shop-cart__content' products={this.props.cartProducts}/>
             </div>
         )
@@ -75,5 +77,3 @@ function mapStateToProps(state) {
 }
 
 ShopCart = connect(mapStateToProps, actions)(ShopCart);
-
-export default ShopCart;
