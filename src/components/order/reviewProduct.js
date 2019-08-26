@@ -16,4 +16,4 @@ class ReviewProduct extends Component {
     }
 }
 
-export default ReviewProduct; 
+export default ReviewProduct;

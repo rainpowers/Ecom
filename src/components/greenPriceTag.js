@@ -11,4 +11,4 @@ class GreenPriceTag extends Component {
     }
 }
 
-export default GreenPriceTag; 
+export default GreenPriceTag;

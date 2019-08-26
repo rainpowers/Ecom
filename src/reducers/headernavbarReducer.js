@@ -18,24 +18,24 @@ export default function(state = INITIAL_STATE, action) {
                 headerLinks: action.payload
             }
         case SET_NAVBAR_LINKS:
-        const { links, onClick } = action.payload;
+        const { links, onClick } = action.payload; 
             return {
                 ...state,
                 navbarLinks: links,
                 onClick: onClick
             }
         case CHANGE_NAVBAR_ACTIVE: 
-        const navbarLinks = state.navbarLinks.map(link => {
-            link.active = false;
-            if(link._id == action.payload) {
-                link.active = true;
+            const navbarLinks = state.navbarLinks.map(link => {
+                link.active = false;
+                if(link._id == action.payload) {
+                    link.active = true;
+                }
+                return link;
+            })
+            return {
+                ...state,
+                navbarLinks
             }
-            return link;
-        })
-        return {
-            ...state,
-            navbarLinks
-        }
         default: return state;
     }
-} 
+}

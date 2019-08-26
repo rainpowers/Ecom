@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import ReviewProduct from './reviewProduct';
 
-
 class ReviewProducts extends Component {
     render() {
         const { className } = this.props;
@@ -30,4 +29,4 @@ function mapStateToProps(state) {
 
 ReviewProducts = connect(mapStateToProps)(ReviewProducts);
 
-export default ReviewProducts; 
+export default ReviewProducts;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Details extends Component {
-    
+
     renderChildren = () => {
         const { links, info } = this.props;
         let children = [];
@@ -18,7 +18,7 @@ class Details extends Component {
     }
 
     render() {
-        const { className, title} = this.props;
+        const { className, title } = this.props;
         return (
             <div className={`${className} details`}>
                 <div className='details__title'>{title}</div>
@@ -32,4 +32,4 @@ class Details extends Component {
     }
 }
 
-export default Details; 
+export default Details;
