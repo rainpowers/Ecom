@@ -9,7 +9,6 @@ import * as actions from '../../actions';
 
 import PaymentForm from './paymentForm';
 
-
 class Payment extends Component {
 
     componentDidMount() {
@@ -33,4 +32,4 @@ class Payment extends Component {
 
 Payment = connect(null, actions)(Payment);
 
-export default Payment; 
+export default Payment;

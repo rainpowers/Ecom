@@ -29,6 +29,7 @@ export {
     fetchCartProducts,
     addCartProduct,
     signIn,
+
     fetchShopCategories,
     fetchShopProducts,
     filterProductsWithCategoryId,

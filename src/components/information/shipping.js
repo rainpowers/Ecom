@@ -9,7 +9,6 @@ import * as actions from '../../actions';
 
 import ShippingForm from './shippingForm';
 
-
 class Shipping extends Component {
 
     componentDidMount() {
@@ -33,4 +32,4 @@ class Shipping extends Component {
 
 Shipping = connect(null, actions)(Shipping);
 
-export default Shipping; 
+export default Shipping;

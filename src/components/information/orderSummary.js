@@ -32,4 +32,4 @@ function mapStateToProps(state) {
 
 OrderSummary = connect(mapStateToProps)(OrderSummary);
 
-export default OrderSummary; 
+export default OrderSummary;

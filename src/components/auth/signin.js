@@ -6,7 +6,6 @@ import PageTitle from '../pageTitle';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-
 class SignIn extends Component {
 
     componentDidMount() {
@@ -18,7 +17,7 @@ class SignIn extends Component {
         this.props.signIn(fields);
         this.props.history.push('/account');
     }
-    
+
     render() {
         return (
             <div className='sign-in'>
@@ -31,5 +30,4 @@ class SignIn extends Component {
 
 SignIn = connect(null, actions)(SignIn);
 
-
-export default SignIn; 
+export default SignIn;

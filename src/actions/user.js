@@ -3,7 +3,6 @@ import {
     SET_PURCHASE_DETAIL,
     SET_CART_PRODUCTS,
     ADD_CART_PRODUCT,
-    ADD_CART_PRODUCT,
     AUTHENTICATE_USER
 } from './types';
 
